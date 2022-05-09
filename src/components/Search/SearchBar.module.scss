@@ -1,0 +1,17 @@
+@use '/src/styles/constants/colors';
+
+.searchbarContainer {
+  position: fixed;
+  top: 10%;
+  width: 280px;
+  height: 50px;
+  padding: 12px;
+  margin: 24px;
+  background: colors.$NAV_COLOR;
+  border: solid 1px colors.$BASICTEXT;
+  border-radius: 25px;
+
+  input {
+    color: white;
+  }
+}
