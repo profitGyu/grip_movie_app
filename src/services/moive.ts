@@ -3,7 +3,7 @@ import { Imoive } from 'types/movie'
 
 const MOVIE_BASE_URL = 'https://api.themoviedb.org/3/search/movie'
 
-const API_KEY = '37819790f34c4eaa4a79f8c47e794ab0'
+const API_KEY = process.env.REACT_APP_MOVIE_API_KEY
 
 interface Params {
   search: string

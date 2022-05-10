@@ -4,8 +4,8 @@ import Header from './header/Header'
 import Main from './main/Main'
 import React from 'react'
 
-type Props = {
-  children?: React.ReactNode
+interface Props {
+  children: React.ReactNode
 }
 
 const Layout = ({ children }: Props) => {

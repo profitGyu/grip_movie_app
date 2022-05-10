@@ -2,7 +2,7 @@ import '../../assets/fontawsome/index'
 import styles from './SearchBar.module.scss'
 import { faMagnifyingGlass as searchIcon } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useSetRecoilState } from 'recoil'
 import { movieSearchState } from 'atom'
 

@@ -1,22 +1,31 @@
-import { useRecoilValue, useSetRecoilState } from 'recoil'
+import styles from './Main.module.scss'
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
 import { movieResultState, moviePageState } from 'atom'
 import MovieBox from 'components/Box/MovieBox'
-import styles from './Main.module.scss'
-import { useScroll } from 'react-use'
 import { useEffect, useRef, useCallback, useState } from 'react'
+import { useMount } from 'react-use'
+import { IResult } from 'types/movie'
 
 const Main = () => {
   const movieList = useRecoilValue(movieResultState)
-  const scrollRef = useRef<HTMLDivElement>(null)
-  const setPage = useSetRecoilState(moviePageState)
-  const [allMoive, setAllMoive] = useState([])
+  const [page, setPage] = useRecoilState(moviePageState)
 
-  const handleObserver = useCallback((entries: any) => {
-    const target = entries[0]
-    if (target.isIntersecting) {
-      setPage((prev) => prev + 1)
-    }
-  }, [])
+  const [allMoive, setAllMoive] = useState<IResult[]>()
+  const scrollRef = useRef<HTMLDivElement>(null)
+
+  const handleObserver = useCallback(
+    (entries: any) => {
+      const target = entries[0]
+      if (target.isIntersecting) {
+        if (page === 1) {
+          setAllMoive(movieList?.results)
+        } else {
+          setPage((prev) => prev + 1)
+        }
+      }
+    },
+    [setPage, movieList]
+  )
 
   useEffect(() => {
     const option = {
@@ -30,9 +39,9 @@ const Main = () => {
 
   return (
     <main className={styles.mainContainer}>
-      {allMoive ? (
+      {movieList ? (
         <ul>
-          {allMoive.map((item) => (
+          {movieList?.results.map((item) => (
             <MovieBox item={item} />
           ))}
           <div ref={scrollRef} />
