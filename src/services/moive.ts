@@ -11,12 +11,13 @@ interface Params {
 }
 
 export const getMovieApi = (parmas: Params) => {
-  const rep = axios
-    .get<Imoive>(
+  try {
+    const rep = axios.get<Imoive>(
       `${MOVIE_BASE_URL}/?api_key=${API_KEY}&language=ko-KR&query=${parmas.search}&page=${parmas.page}&include_adult=false`,
       {}
     )
-    .then()
-
-  return rep
+    return rep
+  } catch (error) {
+    throw new Error(`Error in 'axiosGetJsonData(${MOVIE_BASE_URL})': ${error}`)
+  }
 }
