@@ -6,7 +6,7 @@ import React, { useState } from 'react'
 import { useSetRecoilState } from 'recoil'
 import { movieSearchState } from 'atom'
 
-const SearchBar = ({ onChang }: any) => {
+const SearchBar = () => {
   const setSearch = useSetRecoilState(movieSearchState)
   const [value, setValue] = useState<string>('')
 
@@ -21,14 +21,12 @@ const SearchBar = ({ onChang }: any) => {
 
   return (
     <section className={styles.searchbarContainer}>
-      <div>
-        <form onSubmit={handleSubmit}>
-          <input type='text' onChange={inputChangeHandle} value={value} />
-          <button type='submit'>
-            <FontAwesomeIcon icon={searchIcon} size='lg' />
-          </button>
-        </form>
-      </div>
+      <form onSubmit={handleSubmit}>
+        <input type='text' onChange={inputChangeHandle} value={value} />
+        <button type='submit'>
+          <FontAwesomeIcon icon={searchIcon} size='lg' />
+        </button>
+      </form>
     </section>
   )
 }

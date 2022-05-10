@@ -1,0 +1,18 @@
+@use '/src/styles/constants/colors';
+
+.boxContainer {
+  position: relative;
+  display: flex;
+  min-width: 320px;
+  padding: 1vw;
+  margin-top: 10px;
+  background-color: colors.$WHITE;
+
+  .boxWrapper {
+    display: flex;
+  }
+
+  img {
+    max-width: 50%;
+  }
+}

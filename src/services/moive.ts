@@ -7,17 +7,16 @@ const API_KEY = '37819790f34c4eaa4a79f8c47e794ab0'
 
 interface Params {
   search: string
-  page: string
+  page: number
 }
 
 export const getMovieApi = (parmas: Params) => {
-  try {
-    const rep = axios.get<Imoive>(
+  const rep = axios
+    .get<Imoive>(
       `${MOVIE_BASE_URL}/?api_key=${API_KEY}&language=ko-KR&query=${parmas.search}&page=${parmas.page}&include_adult=false`,
       {}
     )
-    return rep
-  } catch (error) {
-    throw new Error(`Error in 'axiosGetJsonData(${MOVIE_BASE_URL})': ${error}`)
-  }
+    .then()
+
+  return rep
 }

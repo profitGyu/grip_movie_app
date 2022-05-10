@@ -5,7 +5,7 @@ export interface Imoive {
   total_results: number
 }
 
-export interface Result {
+export interface IResult {
   adult: boolean
   backdrop_path: string
   genre_ids: number[]

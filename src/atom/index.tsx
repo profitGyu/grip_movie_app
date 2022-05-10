@@ -3,9 +3,9 @@ import { atom, selector } from 'recoil'
 import { getMovieApi } from 'services/moive'
 import { Imoive } from 'types/movie'
 
-export const moviePageState = atom<string>({
+export const moviePageState = atom<number>({
   key: '#moviePageState',
-  default: '1',
+  default: 1,
 })
 
 export const movieSearchState = atom<string>({
@@ -17,7 +17,7 @@ export const movieResultState = selector<Imoive | null>({
   key: '#movieResultState',
   get: async ({ get }) => {
     const search = get(movieSearchState)
-    const currentPage = get(movieSearchState)
+    const currentPage = get(moviePageState)
 
     if (!search) {
       return null
