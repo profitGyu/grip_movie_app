@@ -14,9 +14,7 @@ const Layout = ({ children }: Props) => {
       <div className={styles.moive}>
         <Header />
         {children}
-        <React.Suspense fallback={<div>Loding...</div>}>
-          <Main />
-        </React.Suspense>
+        
         <Footer />
       </div>
     </div>

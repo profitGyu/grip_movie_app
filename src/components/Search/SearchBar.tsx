@@ -4,11 +4,15 @@ import { faMagnifyingGlass as searchIcon } from '@fortawesome/free-solid-svg-ico
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useState } from 'react'
 import { useSetRecoilState } from 'recoil'
-import { movieSearchState } from 'atom'
+import { movieSearchState, moviePageState, searchedAllMovie } from 'atom'
+import { useSearchParams } from 'react-router-dom'
 
 const SearchBar = () => {
   const setSearch = useSetRecoilState(movieSearchState)
+  const setPage = useSetRecoilState(moviePageState)
+  const setSearched = useSetRecoilState(searchedAllMovie)
   const [value, setValue] = useState<string>('')
+  const currentSearch = useSearchParams()
 
   const inputChangeHandle = (e: React.FormEvent<HTMLInputElement>) => {
     setValue(e.currentTarget.value)
@@ -16,7 +20,10 @@ const SearchBar = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    setSearch(value)
+    
+    setSearched([])
+    setSearch(value.trim())
+    setPage(1)
   }
 
   return (

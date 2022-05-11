@@ -1,7 +1,6 @@
 import { atom, selector } from 'recoil'
-
-import { getMovieApi } from 'services/moive'
-import { Imoive } from 'types/movie'
+import { getMovieAPI } from 'services/moive'
+import { Imoive, IResult } from 'types/movie'
 
 export const moviePageState = atom<number>({
   key: '#moviePageState',
@@ -11,6 +10,11 @@ export const moviePageState = atom<number>({
 export const movieSearchState = atom<string>({
   key: '#movieSearchState',
   default: '',
+})
+
+export const searchedAllMovie = atom<IResult[]>({
+  key: '#searchedAllMovie',
+  default: [],
 })
 
 export const movieResultState = selector<Imoive | null>({
@@ -23,7 +27,11 @@ export const movieResultState = selector<Imoive | null>({
       return null
     }
 
-    const res = await getMovieApi({ search, page: currentPage })
-    return res.data
+    try {
+      const response = await getMovieAPI({ query: search, page: currentPage })
+      return response.data
+    } catch (error) {
+      throw new Error(`Error in 'axiosGetJsonData()': ${error}`)
+    }
   },
 })
