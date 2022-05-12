@@ -1,6 +1,6 @@
 import { atom, selector } from 'recoil'
 import { getMovieAPI } from 'services/moive'
-import { Imoive, IResult } from 'types/movie'
+import { IBookMark, Imoive, IResult } from 'types/movie'
 
 export const moviePageState = atom<number>({
   key: '#moviePageState',
@@ -14,6 +14,16 @@ export const movieSearchState = atom<string>({
 
 export const searchedAllMovie = atom<IResult[]>({
   key: '#searchedAllMovie',
+  default: [],
+})
+
+export const bookmarkList = atom<IBookMark[]>({
+  key: '#bookmarkMovie',
+  default: [],
+})
+
+export const bookmarkIdList = atom<Array<number>>({
+  key: "#bookmarkList",
   default: [],
 })
 

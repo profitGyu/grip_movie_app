@@ -14,7 +14,6 @@ const Layout = ({ children }: Props) => {
       <div className={styles.moive}>
         <Header />
         {children}
-        
         <Footer />
       </div>
     </div>

@@ -21,3 +21,7 @@ export interface IResult {
   vote_average: number
   vote_count: number
 }
+
+export interface IBookMark extends IResult{
+  bookmarkId : number
+}

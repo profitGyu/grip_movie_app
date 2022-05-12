@@ -1,9 +1,23 @@
 import Layout from 'layouts/Moive/Layout'
+import { bookmarkList } from 'atom'
+import { useRecoilValue } from 'recoil'
+import MovieBox from 'components/Box/MovieBox'
+import useBookMarkCore from 'hooks/moives/useBookmarkCore'
+import { useMount } from 'react-use'
 
 const BookMark = () => {
+  const { bookmarkListFirstUpdate } = useBookMarkCore()
+  const bookmarkValue = useRecoilValue(bookmarkList)
+
+  useMount(() => {
+    bookmarkListFirstUpdate()
+  })
+
   return (
     <Layout>
-      <div>북마크 페이지</div>
+      {bookmarkValue.map((item, index) => (
+        <MovieBox item={item} key={`test-${index}`} />
+      ))}
     </Layout>
   )
 }

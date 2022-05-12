@@ -5,7 +5,6 @@ import MovieBox from 'components/Box/MovieBox'
 import { useEffect, useRef, useCallback, useState } from 'react'
 import { IResult } from 'types/movie'
 import { getMovieAPI } from 'services/moive'
-import { observe } from 'react-intersection-observer'
 
 const Main = () => {
   const search = useRecoilValue(movieSearchState)
@@ -30,7 +29,7 @@ const Main = () => {
       })
       setIsLoaded(false)
     },
-    [search]
+    [search, setAllMoive]
   )
 
   useEffect(() => {
@@ -42,18 +41,27 @@ const Main = () => {
       setAllMoive(resp.data.results)
       setTotal(resp.data.total_pages)
     })
-  }, [search])
+  }, [search, setAllMoive])
 
-  const onIntersect = async ([entry]: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+  const updatePage = async (target: number) => {
+    return target + 1
+  }
+
+  // const pageUpdate = useCallback( async () => {
+  //   await setCurrentPage((prev) => prev + 1)
+  // }, [setCurrentPage, currentPage])
+
+  const onIntersect = useCallback(async ([entry]: IntersectionObserverEntry[], observer: IntersectionObserver) => {
     if (entry.isIntersecting && !isLoaded) {
       observer.unobserve(entry.target)
       if (total > currentPage) {
-        setCurrentPage((prev) => prev + 1)
-        await getMovie(currentPage +1 )
+        const nextPage = currentPage +1
+        setCurrentPage(nextPage)
+        getMovie(nextPage)
         observer.observe(entry.target)
       }
     }
-  }
+  }, [currentPage, getMovie, isLoaded, setCurrentPage, total])
 
   useEffect(() => {
     const option = {
@@ -64,11 +72,12 @@ const Main = () => {
     const observer = new IntersectionObserver(onIntersect, option)
     if (scrollRef.current) observer.observe(scrollRef.current)
     return () => observer.disconnect()
-  }, [scrollRef.current, onIntersect])
+  }, [onIntersect])
 
   return (
     <main className={styles.mainContainer}>
       <h1>{total}</h1>
+
       {allMoive.length !== 0 ? (
         <ul>
           {allMoive.map((item, index) => (
