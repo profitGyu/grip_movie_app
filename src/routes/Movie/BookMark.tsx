@@ -16,7 +16,7 @@ const BookMark = () => {
   return (
     <Layout>
       {bookmarkValue.map((item, index) => (
-        <MovieBox item={item} index={index} key={`test-${index}`} />
+        <MovieBox item={item} index={index} key={`bookmarkIndex-${index}`} />
       ))}
     </Layout>
   )

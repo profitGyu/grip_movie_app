@@ -12,7 +12,6 @@ const SearchBar = () => {
   const setPage = useSetRecoilState(moviePageState)
   const setSearched = useSetRecoilState(searchedAllMovie)
   const [value, setValue] = useState<string>('')
-  const currentSearch = useSearchParams()
 
   const inputChangeHandle = (e: React.FormEvent<HTMLInputElement>) => {
     setValue(e.currentTarget.value)
@@ -31,7 +30,7 @@ const SearchBar = () => {
       <form onSubmit={handleSubmit}>
         <input type='text' onChange={inputChangeHandle} value={value} />
         <button type='submit'>
-          <FontAwesomeIcon icon={searchIcon} size='lg' />
+          <FontAwesomeIcon icon={searchIcon} size='2x' />
         </button>
       </form>
     </section>

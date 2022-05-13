@@ -32,6 +32,7 @@ const useDragDrop = () => {
     const list = [...bookmark]
     list[data] = list.splice(targetPosition, 1, list[data])[0]
     setBookmark(list)
+    store.set("bookmarkList", list)
   }
 
   return { handleDragStart, handleDragEnd, handleDragOver, handleOnDrop }

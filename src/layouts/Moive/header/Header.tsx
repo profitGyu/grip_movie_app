@@ -1,6 +1,8 @@
 import { useMount } from 'hooks'
 import styles from './Header.module.scss'
 import useBookMarkCore from 'hooks/moives/useBookmarkCore'
+import logo from '../../../assets/svgs/gripLogo3.png'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
   const { bookmarkIdListFirstUpdate } = useBookMarkCore()
@@ -10,7 +12,11 @@ const Header = () => {
   })
   return (
     <header className={styles.headerContainer}>
-      <div>logs</div>
+      <div>
+        <Link to="/">
+          <img src={logo} alt='로고' />
+        </Link>
+      </div>
     </header>
   )
 }

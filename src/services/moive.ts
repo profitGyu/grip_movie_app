@@ -19,4 +19,3 @@ export const getMovieAPI = (params: Params) =>
       include_adult: 'false',
     },
   })
-
