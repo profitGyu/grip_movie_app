@@ -4,6 +4,7 @@ import { useRecoilValue } from 'recoil'
 import MovieBox from 'components/Box/MovieBox'
 import useBookMarkCore from 'hooks/moives/useBookmarkCore'
 import { useMount } from 'react-use'
+import { EmptyResult } from 'components/Search/EmptyResult'
 
 const BookMark = () => {
   const { bookmarkListFirstUpdate } = useBookMarkCore()
@@ -15,9 +16,12 @@ const BookMark = () => {
 
   return (
     <Layout>
-      {bookmarkValue.map((item, index) => (
-        <MovieBox item={item} index={index} key={`bookmarkIndex-${index}`} />
-      ))}
+      <h1>내 즐겨찾기</h1>
+      {bookmarkValue.length !== 0 ? (
+        bookmarkValue.map((item, index) => <MovieBox item={item} index={index} key={`bookmarkIndex-${index}`} />)
+      ) : (
+        <EmptyResult />
+      )}
     </Layout>
   )
 }

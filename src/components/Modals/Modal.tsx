@@ -24,7 +24,10 @@ const Modal = ({ open, close, item, bookmarkIs }: Modaltype) => {
         </header>
         <main>
           {bookmarkIs ? (
-            <div>{`${item?.title}를 즐겨찾기에 해제합니다.`}</div>
+            <div>
+              <div className={styles.mainTitle}>{item?.title}</div>
+              <div>즐겨찾기에서 해제합니다.</div>
+            </div>
           ) : (
             <div>{`${item?.title}를 즐겨찾기에 등록합니다.`}</div>
           )}

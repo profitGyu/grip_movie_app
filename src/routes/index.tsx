@@ -2,6 +2,7 @@ import Movie from 'routes/Movie/Search'
 import BookMark from 'routes/Movie/BookMark'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { RecoilRoot } from 'recoil'
+import './App.module.scss'
 
 const App = () => {
   return (

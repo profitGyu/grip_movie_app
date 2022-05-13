@@ -22,6 +22,15 @@ export interface IResult {
   vote_count: number
 }
 
-export interface IBookMark extends IResult{
-  bookmarkId : number
+export interface IBookMark extends IResult {
+  bookmarkId: number
+}
+
+interface IGenreRsult {
+  genres: Genre[]
+}
+
+interface IGenre {
+  id: number
+  name: string
 }

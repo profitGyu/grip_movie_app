@@ -1,5 +1,6 @@
 @use '/src/styles/constants/colors';
 @use '/src/styles/constants/levels';
+@use '/src/styles/mixins/responsive';
 
 .closeModal {
   display: none;
@@ -12,22 +13,69 @@
   bottom: 0;
   left: 0;
   z-index: levels.$MODAL;
+  display: flex;
+  align-items: center;
   background-color: colors.$MODALBACKCOLOR;
+  transition: 1s;
 
   section {
-    width: 90%;
-    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: 40%;
+    padding: 3vw;
     margin: 0 auto;
     overflow: hidden;
     background-color: colors.$GRAYE;
+    border-radius: 5px;
+
+    @include responsive.between(SD, QHD) {
+      height: 40%;
+    }
   }
 
   header {
+    display: flex;
+    flex-direction: row-reverse;
+
     button {
       padding: 6px 12px;
-      font-size: 13px;
+      font-size: 4vw;
       color: colors.$WHITE;
-      background-color: #6c757d;
+      background-color: colors.$BORDERCOLOR;
+      border-radius: 5px;
+    }
+  }
+
+  main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 4vw;
+    font-weight: 500;
+    color: colors.$BIG_TITLE;
+    text-align: center;
+
+    .mainTitle {
+      margin-bottom: 10px;
+      font-size: 5vw;
+      font-weight: 1000;
+    }
+  }
+
+  footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    button {
+      padding: 2vw;
+      font-size: 2vw;
+      font-weight: 800;
+      color: colors.$BASICTEXT;
+      background: colors.$BIG_TITLE;
+      border: 5px;
       border-radius: 5px;
     }
   }

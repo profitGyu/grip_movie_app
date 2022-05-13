@@ -6,6 +6,7 @@ import { moviePageState, movieSearchState, searchedAllMovie } from 'atom'
 import MovieBox from 'components/Box/MovieBox'
 import { useEffect, useRef, useCallback, useState, Suspense } from 'react'
 import { getMovieAPI } from 'services/moive'
+import { EmptyResult } from 'components/Search/EmptyResult'
 
 const Movie = () => {
   const search = useRecoilValue(movieSearchState)
@@ -77,7 +78,7 @@ const Movie = () => {
 
       {allMoive.length !== 0 ? (
         <ul>
-          {allMoive.map((item,index) => (
+          {allMoive.map((item, index) => (
             <MovieBox item={item} key={`moive-list+${index}`} />
           ))}
           <Suspense fallback={<div>Loding...</div>}>
@@ -87,7 +88,7 @@ const Movie = () => {
           </Suspense>
         </ul>
       ) : (
-        <div>결과가 존재하지 않습니다.</div>
+        <EmptyResult />
       )}
     </Layout>
   )

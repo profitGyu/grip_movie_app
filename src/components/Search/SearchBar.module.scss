@@ -3,16 +3,16 @@
 .searchbarContainer {
   position: fixed;
   top: 10%;
-  width: 85vw;
+  width: 80vw;
   height: 52px;
   padding: 10px;
-  margin: 2.5vw;
+  margin-top: 4vh;
   background: colors.$NAV_COLOR;
   border: solid 1px colors.$BASICTEXT;
   border-radius: 25px;
 
   input {
-    width: 80vw;
+    width: 65vw;
     color: colors.$BASICTEXT;
   }
 

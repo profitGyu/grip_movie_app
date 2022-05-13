@@ -19,7 +19,7 @@ const SearchBar = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    
+
     setSearched([])
     setSearch(value.trim())
     setPage(1)

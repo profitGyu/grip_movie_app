@@ -1,6 +1,6 @@
 import { atom, selector } from 'recoil'
-import { getMovieAPI } from 'services/moive'
-import { IBookMark, Imoive, IResult } from 'types/movie'
+import { IBookMark, IResult, IGenreRsult, Imoive } from 'types/movie'
+import { getMovieGenreAPI, getMovieAPI } from 'services/moive'
 
 export const moviePageState = atom<number>({
   key: '#moviePageState',
@@ -23,8 +23,20 @@ export const bookmarkList = atom<IBookMark[]>({
 })
 
 export const bookmarkIdList = atom<Array<number>>({
-  key: "#bookmarkList",
+  key: '#bookmarkList',
   default: [],
+})
+
+export const movieGenreListSate = selector<IGenreRsult>({
+  key: '#movieGenreList',
+  get: async () => {
+    try {
+      const response = await getMovieGenreAPI()
+      return response.data
+    } catch (error) {
+      throw new Error(`Error in 'axiosGetJsonData()': ${error}`)
+    }
+  },
 })
 
 // export const movieResultState = selector<Imoive | null>({

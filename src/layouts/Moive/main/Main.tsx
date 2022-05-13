@@ -5,7 +5,11 @@ interface Props {
 }
 
 const Main = ({ children }: Props) => {
-  return <main className={styles.mainContainer}>{children}</main>
+  return (
+    <main className={styles.mainContainer}>
+      <div className={styles.mainWapper}>{children}</div>
+    </main>
+  )
 }
 
 export default Main
