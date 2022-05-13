@@ -1,16 +1,14 @@
 import styles from './Main.module.scss'
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
-import { movieResultState, moviePageState, movieSearchState, searchedAllMovie } from 'atom'
+import { useRecoilState, useRecoilValue } from 'recoil'
+import {  moviePageState, movieSearchState, searchedAllMovie } from 'atom'
 import MovieBox from 'components/Box/MovieBox'
 import { useEffect, useRef, useCallback, useState } from 'react'
-import { IResult } from 'types/movie'
 import { getMovieAPI } from 'services/moive'
 
 const Main = () => {
   const search = useRecoilValue(movieSearchState)
   const [allMoive, setAllMoive] = useRecoilState(searchedAllMovie)
   const [currentPage, setCurrentPage] = useRecoilState(moviePageState)
-  const movieList = useRecoilValue(movieResultState)
   const [total, setTotal] = useState<number>(0)
   const scrollRef = useRef<HTMLDivElement>(null)
   const [isLoaded, setIsLoaded] = useState(false)

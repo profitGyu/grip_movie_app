@@ -1,4 +1,4 @@
-import { MouseEvent, MouseEventHandler, useState } from 'react'
+import { MouseEventHandler } from 'react'
 import { IResult } from 'types/movie'
 import styles from './Modal.module.scss'
 import useBookMarkCore from 'hooks/moives/useBookmarkCore'

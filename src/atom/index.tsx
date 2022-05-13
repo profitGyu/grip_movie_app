@@ -27,21 +27,21 @@ export const bookmarkIdList = atom<Array<number>>({
   default: [],
 })
 
-export const movieResultState = selector<Imoive | null>({
-  key: '#movieResultState',
-  get: async ({ get }) => {
-    const search = get(movieSearchState)
-    const currentPage = get(moviePageState)
+// export const movieResultState = selector<Imoive | null>({
+//   key: '#movieResultState',
+//   get: async ({ get }) => {
+//     const search = get(movieSearchState)
+//     const currentPage = get(moviePageState)
 
-    if (!search) {
-      return null
-    }
+//     if (!search) {
+//       return null
+//     }
 
-    try {
-      const response = await getMovieAPI({ query: search, page: currentPage })
-      return response.data
-    } catch (error) {
-      throw new Error(`Error in 'axiosGetJsonData()': ${error}`)
-    }
-  },
-})
+//     try {
+//       const response = await getMovieAPI({ query: search, page: currentPage })
+//       return response.data
+//     } catch (error) {
+//       throw new Error(`Error in 'axiosGetJsonData()': ${error}`)
+//     }
+//   },
+// })
