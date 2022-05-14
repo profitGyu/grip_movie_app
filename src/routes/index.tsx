@@ -9,8 +9,11 @@ const App = () => {
     <RecoilRoot>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Movie />} />
-          <Route path='/bookmark' element={<BookMark />} />
+          <Route path='grip_movie_app' element={<Movie />}>
+            <Route path=':search' element={<Movie />} />
+          </Route>
+          <Route path='bookmark' element={<BookMark />} />
+          <Route path='*' element={<div>잘못된 접근입니다.</div>} />
         </Routes>
       </BrowserRouter>
     </RecoilRoot>

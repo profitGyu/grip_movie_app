@@ -15,12 +15,11 @@ const BookMark = () => {
   })
 
   return (
-    <Layout>
-      <h1>내 즐겨찾기</h1>
+    <Layout mainTitle='내 즐겨찾기'>
       {bookmarkValue.length !== 0 ? (
         bookmarkValue.map((item, index) => <MovieBox item={item} index={index} key={`bookmarkIndex-${index}`} />)
       ) : (
-        <EmptyResult content='즐겨찾기 목록이 없습니다.'/>
+        <EmptyResult content='즐겨찾기 목록이 없습니다.' />
       )}
     </Layout>
   )

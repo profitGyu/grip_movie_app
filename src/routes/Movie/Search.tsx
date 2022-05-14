@@ -14,15 +14,16 @@ const Movie = () => {
   const [currentPage, setCurrentPage] = useRecoilState(moviePageState)
 
   const [total, setTotal] = useState<number>(0)
+  const [totalCount, setTotalCount] = useState<number>(0)
   const scrollRef = useRef<HTMLDivElement>(null)
   const [isLoaded, setIsLoaded] = useState(false)
 
   const getMovie = useCallback(
-    async (test: number) => {
+    async (targetPage: number) => {
       setIsLoaded(true)
       getMovieAPI({
         query: search,
-        page: test,
+        page: targetPage,
       }).then((resp) => {
         if (resp.data.results === []) return
         setAllMoive((prev) => {
@@ -42,6 +43,7 @@ const Movie = () => {
     }).then((resp) => {
       setAllMoive(resp.data.results)
       setTotal(resp.data.total_pages)
+      setTotalCount(resp.data.total_results)
     })
   }, [search, setAllMoive])
 
@@ -70,13 +72,12 @@ const Movie = () => {
     if (scrollRef.current) observer.observe(scrollRef.current)
     return () => observer.disconnect()
   }, [onIntersect])
+
   return (
     <Layout>
       <SearchBar />
-
-      <h2>{total > 0 ? total : null}</h2>
-
-      {allMoive.length !== 0 ? (
+      {totalCount > 0 ? <h1>총 {totalCount}개의 결과물</h1> : null}
+      {allMoive.length ? (
         <ul>
           {allMoive.map((item, index) => (
             <MovieBox item={item} key={`moive-list+${index}`} />
@@ -88,7 +89,7 @@ const Movie = () => {
           </Suspense>
         </ul>
       ) : (
-        <EmptyResult content="검색 결과가 없습니다."/>
+        <EmptyResult content='검색 결과가 없습니다.' />
       )}
     </Layout>
   )

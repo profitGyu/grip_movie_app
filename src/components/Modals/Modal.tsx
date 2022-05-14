@@ -3,6 +3,7 @@ import { IResult } from 'types/movie'
 import styles from './Modal.module.scss'
 import useBookMarkCore from 'hooks/moives/useBookmarkCore'
 
+
 interface Modaltype {
   open?: boolean
   close: MouseEventHandler<HTMLButtonElement | HTMLDivElement>

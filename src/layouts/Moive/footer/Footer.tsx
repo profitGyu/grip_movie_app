@@ -3,23 +3,35 @@ import { faMagnifyingGlass, faBookBookmark } from '@fortawesome/free-solid-svg-i
 import styles from './Footer.module.scss'
 import { Link } from 'react-router-dom'
 
-const Footer = () => (
-  <footer className={styles.footerContainer}>
-    <nav>
-      <ul>
-        <li>
-          <Link to='/'>
-            <FontAwesomeIcon icon={faMagnifyingGlass} size='lg' />
-          </Link>
-        </li>
-        <li>
-          <Link to='/BookMark'>
-            <FontAwesomeIcon icon={faBookBookmark} size='lg' />
-          </Link>
-        </li>
-      </ul>
-    </nav>
-  </footer>
-)
+const Footer = () => {
+  const location = window.location.pathname
+
+  return (
+    <footer className={styles.footerContainer}>
+      <nav>
+        <ul>
+          <li>
+            <Link to='/grip_movie_app'>
+              <FontAwesomeIcon
+                icon={faMagnifyingGlass}
+                size='lg'
+                className={location === '/grip_movie_app' ? styles.iconActive : 'nomal'}
+              />
+            </Link>
+          </li>
+          <li>
+            <Link to='/BookMark'>
+              <FontAwesomeIcon
+                icon={faBookBookmark}
+                size='lg'
+                className={location === '/BookMark' ? styles.iconActive : 'nomal'}
+              />
+            </Link>
+          </li>
+        </ul>
+      </nav>
+    </footer>
+  )
+}
 
 export default Footer

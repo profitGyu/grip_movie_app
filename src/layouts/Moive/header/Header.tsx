@@ -10,10 +10,11 @@ const Header = () => {
   useMount(() => {
     bookmarkIdListFirstUpdate()
   })
+
   return (
     <header className={styles.headerContainer}>
       <div>
-        <Link to="/">
+        <Link to='/grip_movie_app'>
           <img src={logo} alt='로고' />
         </Link>
       </div>

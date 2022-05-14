@@ -49,7 +49,7 @@ const MovieBox = ({ item, index }: BoxProps): React.ReactElement => {
       <Modal item={item} open={modalOpen} close={closeModal} bookmarkIs={bookmarkIs} />
       <div className={styles.boxWrapper} onClick={showModal} aria-hidden>
         {item.backdrop_path ? (
-          <img src={`https://image.tmdb.org/t/p/w500${item.backdrop_path}`} alt={item.title} />
+          <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} alt={item.title} />
         ) : (
           <img src={img} alt={item.title} />
         )}

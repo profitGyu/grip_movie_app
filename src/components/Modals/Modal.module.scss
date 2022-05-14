@@ -1,6 +1,8 @@
 @use '/src/styles/constants/colors';
 @use '/src/styles/constants/levels';
+@use '/src/styles/mixins/position';
 @use '/src/styles/mixins/responsive';
+@use '/src/styles/mixins/animation';
 
 .closeModal {
   display: none;
@@ -16,7 +18,6 @@
   display: flex;
   align-items: center;
   background-color: colors.$MODALBACKCOLOR;
-  transition: 1s;
 
   section {
     display: flex;
@@ -28,6 +29,7 @@
     overflow: hidden;
     background-color: colors.$GRAYE;
     border-radius: 5px;
+    animation: fadeFromDown 1s;
 
     @include responsive.between(SD, QHD) {
       height: 60%;
