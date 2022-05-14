@@ -63,7 +63,7 @@ https://silent10z.github.io/grip_movie_app
 ### 공통
 - 버전 3
 - REST프로토콜 형식 GET메서드
-
+- 기본 URL: https://api.themoviedb.org/3
 - response 400: "state_code" : 7 -> API KEY  에러
 
 - response 404: "status_code": 34 -> 요청한 리소스를 찾을 수 없는 경우
@@ -136,3 +136,28 @@ https://api.themoviedb.org/3/search/movie?api_key=<<api_key>>&language=ko-KR&que
 예시:
 https://api.themoviedb.org/3/genre/movie/list?api_key=<<api_key>>&language=ko-KR
 > 참조 https://developers.themoviedb.org/3/genres/get-movie-list 
+
+
+### 3. 이미지 호출
+
+https://image.tmdb.org/t/p/w500 + 영화 호출 결과 posterURL
+
+예시
+https://image.tmdb.org/t/p/w300_and_h450_bestv2/318YNPBDdt4VU1nsJDdImGc8Gek.jpg
+
+
+## 기능 구현
+
+- 검색, 즐겨찾기 하단 탭 구성
+- 상단 입력/버튼 하단 검색 결과 화면
+- 첫 검색 결과 영역 "검색 결과가 없습니다." 노출
+
+- 검색어 입력 후 버튼 클릭 
+    - 아래 검색결과 노출
+    - 검색 박스 고정
+    - 왼쪽 영화 포스터 이미지, 오른쪽 영화 제목, 연도, 타입(저는 장르) 표시
+    - 검색결과 x "검색 결과가 없습니다." 노출
+
+- 검색 결과 중 영화 클릭
+
+

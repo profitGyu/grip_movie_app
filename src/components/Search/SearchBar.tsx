@@ -6,6 +6,7 @@ import { ChangeEvent, FormEvent, useState } from 'react'
 import { useSetRecoilState } from 'recoil'
 import { movieSearchState, moviePageState, searchedAllMovie } from 'atom'
 import { useSearchParams } from 'react-router-dom'
+import { Console } from 'console'
 
 const SearchBar = () => {
   const setSearch = useSetRecoilState(movieSearchState)
@@ -24,6 +25,7 @@ const SearchBar = () => {
     e.preventDefault()
     const currentSearch = searchParams.get('query')
 
+    console.log("teste")
     if (currentSearch === value) return
 
     setSearch(value.trim())

@@ -3,7 +3,6 @@ import { IResult } from 'types/movie'
 import styles from './Modal.module.scss'
 import useBookMarkCore from 'hooks/moives/useBookmarkCore'
 
-
 interface Modaltype {
   open?: boolean
   close: MouseEventHandler<HTMLButtonElement | HTMLDivElement>
@@ -17,18 +16,19 @@ const Modal = ({ open, close, item, bookmarkIs }: Modaltype) => {
   const moviesId = item.id
   return (
     <div className={open ? styles.modal : styles.closeModal} onClick={close} aria-hidden>
-      <section>
+      <section
+        style={{
+          backgroundImage: `url(https://image.tmdb.org/t/p/w300_and_h450_bestv2${item.poster_path})`,
+
+          backgroundRepeat: 'no-repeat',
+        }}
+      >
         <header>
           <button type='button' onClick={close}>
             &times;
           </button>
         </header>
-        <main>
-          <div>
-            <div className={styles.mainTitle}>{item?.title}</div>
-            {bookmarkIs ? <div>즐겨찾기에서 해제합니다.</div> : <div>즐겨찾기에 등록합니다.</div>}
-          </div>
-        </main>
+        <main>{}</main>
         <footer>
           {bookmarkIs ? (
             <button
@@ -39,7 +39,7 @@ const Modal = ({ open, close, item, bookmarkIs }: Modaltype) => {
                 handleDeleteBookmarkList(moviesId)
               }}
             >
-              해제
+              즐겨찾기 제거
             </button>
           ) : (
             <button
@@ -50,12 +50,12 @@ const Modal = ({ open, close, item, bookmarkIs }: Modaltype) => {
                 handleUpdateBookmarkList({ item })
               }}
             >
-              추가
+              즐겨찾기
             </button>
           )}
 
           <button type='button' onClick={close}>
-            아니요
+            취소
           </button>
         </footer>
       </section>

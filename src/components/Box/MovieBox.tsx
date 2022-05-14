@@ -48,14 +48,14 @@ const MovieBox = ({ item, index }: BoxProps): React.ReactElement => {
     >
       <Modal item={item} open={modalOpen} close={closeModal} bookmarkIs={bookmarkIs} />
       <div className={styles.boxWrapper} onClick={showModal} aria-hidden>
-        {item.backdrop_path ? (
-          <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} alt={item.title} />
+        {item.poster_path ? (
+          <img src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2${item.poster_path}`} alt={item.title} />
         ) : (
           <img src={img} alt={item.title} />
         )}
         <div className={styles.boxContent}>
           <h2>{item.title}</h2>
-          <div>{item.release_date}</div>
+          <h3>{item.release_date}</h3>
           <ul>
             {item.genre_ids.map((id, genreIndex) => {
               const results = movieGenreList.genres.filter((elemnt) => elemnt.id === id)[0]

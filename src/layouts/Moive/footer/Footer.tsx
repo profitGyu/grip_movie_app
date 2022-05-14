@@ -15,7 +15,9 @@ const Footer = () => {
               <FontAwesomeIcon
                 icon={faMagnifyingGlass}
                 size='lg'
-                className={location === '/grip_movie_app' ? styles.iconActive : 'nomal'}
+                className={
+                  location === '/grip_movie_app' || location === '/grip_movie_app/' ? styles.iconActive : 'nomal'
+                }
               />
             </Link>
           </li>

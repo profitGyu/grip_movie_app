@@ -10,6 +10,7 @@
   margin-top: 10px;
   background-color: colors.$BORDERCOLOR;
   border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 15%) 2.4px 2.4px 3.2px;
 
   .boxWrapper {
     display: flex;
@@ -20,19 +21,34 @@
       flex: 5;
       flex-direction: column;
       align-items: baseline;
-      justify-content: space-evenly;
+      justify-content: flex-start;
+      padding: 2vw;
       margin: 1vw;
 
       @include responsive.between(ML, QHD) {
         flex: 3;
       }
 
+      h2 {
+        font-weight: 900;
+        color: colors.$SUBTITE;
+      }
+
+      h3 {
+        font-weight: 400;
+        color: colors.$SUBTITE;
+      }
+
       ul {
         display: flex;
         justify-content: space-evenly;
+        margin-top: 2vw;
 
         li {
+          padding: 6px;
           margin-right: 1vw;
+          border-radius: 5px;
+          box-shadow: rgb(50 50 93 / 25%) 0px 30px 60px -12px inset, rgb(0 0 0 / 30%) 0px 18px 36px -18px inset;
         }
       }
     }
@@ -50,8 +66,8 @@
     border-radius: 10px;
 
     @include responsive.between(M, ML) {
-      max-width: 130px;
-      height: 80px;
+      max-width: 80px;
+      height: 120px;
     }
     @include responsive.between(ML, SD) {
       width: 250px;
@@ -59,8 +75,52 @@
       height: 120px;
     }
     @include responsive.between(SD, MD) {
-      width: 300px;
-      height: 150px;
+      width: 207px;
+      height: 200px;
+    }
+  }
+
+  @include responsive.between(M, ML) {
+    h2 {
+      font-size: 16px;
+    }
+
+    h3 {
+      font-size: 12px;
+    }
+
+    li {
+      font-size: 8px;
+    }
+  }
+  @include responsive.between(ML, SD) {
+    h2 {
+      font-size: 40px;
+    }
+
+    h3 {
+      font-size: 24px;
+    }
+
+    li {
+      font-size: 8px;
+    }
+  }
+  @include responsive.between(SD, QHD) {
+    h2 {
+      font-size: 40px;
+    }
+
+    h3 {
+      font-size: 24px;
+    }
+
+    li {
+      font-size: 8px;
+    }
+
+    .bookmarkButton {
+      font-size: 40px;
     }
   }
 }
