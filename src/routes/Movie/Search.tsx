@@ -88,7 +88,7 @@ const Movie = () => {
           </Suspense>
         </ul>
       ) : (
-        <EmptyResult />
+        <EmptyResult content="검색 결과가 없습니다."/>
       )}
     </Layout>
   )
