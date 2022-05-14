@@ -4,7 +4,7 @@
 .boxContainer {
   position: relative;
   display: flex;
-  width: 80vw;
+  width: 100%;
   min-width: 250px;
   padding: 1vw;
   margin-top: 10px;
@@ -13,32 +13,54 @@
 
   .boxWrapper {
     display: flex;
-    padding: 1vw;
-  }
+    width: 100%;
 
-  .content {
-    flex: 1;
-    color: colors.$TEXT;
+    .boxContent {
+      display: flex;
+      flex: 5;
+      flex-direction: column;
+      align-items: baseline;
+      justify-content: space-evenly;
+      margin: 1vw;
 
-    h1 {
-      font-size: 6vw;
-
-      .bookmarkButton {
-        font-size: 6vw;
+      @include responsive.between(ML, QHD) {
+        flex: 3;
       }
+
+      ul {
+        display: flex;
+        justify-content: space-evenly;
+
+        li {
+          margin-right: 1vw;
+        }
+      }
+    }
+
+    .boxBookmark {
+      flex: 1;
+      text-align: end;
     }
   }
 
   img {
-    flex: 1;
+    flex: 2;
     width: 30%;
-    min-width: 130px;
     min-height: 70px;
-    max-width: 430px;
     border-radius: 10px;
 
-    @include responsive.only(M) {
-      width: 142px;
+    @include responsive.between(M, ML) {
+      max-width: 130px;
+      height: 80px;
+    }
+    @include responsive.between(ML, SD) {
+      width: 250px;
+      max-width: 250px;
+      height: 120px;
+    }
+    @include responsive.between(SD, MD) {
+      width: 300px;
+      height: 150px;
     }
   }
 }

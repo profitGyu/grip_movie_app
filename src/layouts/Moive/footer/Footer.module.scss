@@ -26,6 +26,10 @@
     a {
       all: unset;
     }
+
+    a:hover {
+      color: colors.$ACTIVECOIOR;
+    }
   }
 
   nav:hover {

@@ -5,7 +5,7 @@ import useBookMarkCore from 'hooks/moives/useBookmarkCore'
 
 interface Modaltype {
   open?: boolean
-  close: MouseEventHandler<HTMLButtonElement>
+  close: MouseEventHandler<HTMLButtonElement | HTMLDivElement>
   item: IResult
   bookmarkIs?: boolean
 }
@@ -15,7 +15,7 @@ const Modal = ({ open, close, item, bookmarkIs }: Modaltype) => {
     useBookMarkCore()
   const moviesId = item.id
   return (
-    <div className={open ? styles.modal : styles.closeModal}>
+    <div className={open ? styles.modal : styles.closeModal} onClick={close} aria-hidden>
       <section>
         <header>
           <button type='button' onClick={close}>
@@ -23,14 +23,10 @@ const Modal = ({ open, close, item, bookmarkIs }: Modaltype) => {
           </button>
         </header>
         <main>
-          {bookmarkIs ? (
-            <div>
-              <div className={styles.mainTitle}>{item?.title}</div>
-              <div>즐겨찾기에서 해제합니다.</div>
-            </div>
-          ) : (
-            <div>{`${item?.title}를 즐겨찾기에 등록합니다.`}</div>
-          )}
+          <div>
+            <div className={styles.mainTitle}>{item?.title}</div>
+            {bookmarkIs ? <div>즐겨찾기에서 해제합니다.</div> : <div>즐겨찾기에 등록합니다.</div>}
+          </div>
         </main>
         <footer>
           {bookmarkIs ? (

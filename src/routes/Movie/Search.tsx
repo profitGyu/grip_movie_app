@@ -83,7 +83,7 @@ const Movie = () => {
           ))}
           <Suspense fallback={<div>Loding...</div>}>
             <div ref={scrollRef} style={{ height: '50px' }}>
-              {isLoaded && '로딩중'}
+              {/* {isLoaded && '로딩중'} */}
             </div>
           </Suspense>
         </ul>

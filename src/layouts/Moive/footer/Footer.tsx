@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMagnifyingGlass, faStar } from '@fortawesome/free-solid-svg-icons'
+import { faMagnifyingGlass, faBookBookmark } from '@fortawesome/free-solid-svg-icons'
 import styles from './Footer.module.scss'
 import { Link } from 'react-router-dom'
 
@@ -8,13 +8,13 @@ const Footer = () => (
     <nav>
       <ul>
         <li>
-          <Link to="/">
+          <Link to='/'>
             <FontAwesomeIcon icon={faMagnifyingGlass} size='lg' />
           </Link>
         </li>
         <li>
-          <Link to="/BookMark">
-            <FontAwesomeIcon icon={faStar} size='lg' />
+          <Link to='/BookMark'>
+            <FontAwesomeIcon icon={faBookBookmark} size='lg' />
           </Link>
         </li>
       </ul>

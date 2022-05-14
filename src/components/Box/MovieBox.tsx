@@ -1,13 +1,16 @@
 import styles from './MovieBox.module.scss'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar } from '@fortawesome/free-solid-svg-icons'
+import Modal from '../Modals/Modal'
 import img from '../../assets/images/no-img.png'
+import useDragDrop from 'hooks/moives/useFrageDorp'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBookBookmark } from '@fortawesome/free-solid-svg-icons'
+
 import { useRecoilValue } from 'recoil'
 import { bookmarkIdList, movieGenreListSate } from 'atom'
-import Modal from '../Modals/Modal'
 import { useState } from 'hooks'
-import { MouseEventHandler, Suspense } from 'react'
-import useDragDrop from 'hooks/moives/useFrageDorp'
+import { MouseEventHandler } from 'react'
+
 import { IResult } from 'types/movie'
 
 interface BoxProps {
@@ -18,6 +21,7 @@ interface BoxProps {
 const MovieBox = ({ item, index }: BoxProps): React.ReactElement => {
   const bookmarkId = useRecoilValue(bookmarkIdList)
   const movieGenreList = useRecoilValue(movieGenreListSate)
+
   const [modalOpen, setModalOpen] = useState(false)
 
   const { handleDragStart, handleDragOver, handleDragEnd, handleOnDrop } = useDragDrop()
@@ -28,7 +32,7 @@ const MovieBox = ({ item, index }: BoxProps): React.ReactElement => {
     setModalOpen(true)
   }
 
-  const closeModal: MouseEventHandler<HTMLButtonElement> = () => {
+  const closeModal: MouseEventHandler<HTMLButtonElement | HTMLDivElement> = () => {
     setModalOpen(false)
   }
 
@@ -49,16 +53,8 @@ const MovieBox = ({ item, index }: BoxProps): React.ReactElement => {
         ) : (
           <img src={img} alt={item.title} />
         )}
-
-        <section className={styles.content}>
-          <header>
-            <h1>
-              {item.title}
-              <button type='button' className={styles.bookmarkButton}>
-                {bookmarkIs ? <FontAwesomeIcon icon={faStar} color='red' /> : <FontAwesomeIcon icon={faStar} />}
-              </button>
-            </h1>
-          </header>
+        <div className={styles.boxContent}>
+          <h2>{item.title}</h2>
           <div>{item.release_date}</div>
           <ul>
             {item.genre_ids.map((id, genreIndex) => {
@@ -66,7 +62,16 @@ const MovieBox = ({ item, index }: BoxProps): React.ReactElement => {
               return <li key={`genre-${genreIndex}`}>{results.name}</li>
             })}
           </ul>
-        </section>
+        </div>
+        <div className={styles.boxBookmark}>
+          <button type='button' className={styles.bookmarkButton}>
+            {bookmarkIs ? (
+              <FontAwesomeIcon icon={faBookBookmark} color='#BA4384' size='2x' />
+            ) : (
+              <FontAwesomeIcon icon={faBookBookmark} color='#0086C1' size='2x' />
+            )}
+          </button>
+        </div>
       </div>
     </li>
   )
