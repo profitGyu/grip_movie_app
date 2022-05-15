@@ -7,9 +7,9 @@ import './App.module.scss'
 const App = () => {
   return (
     <RecoilRoot>
-      <BrowserRouter>
+      <BrowserRouter basename='/grip_movie_app'>
         <Routes>
-          <Route path='grip_movie_app' element={<Movie />}>
+          <Route path='/' element={<Movie />}>
             <Route path=':search' element={<Movie />} />
           </Route>
           <Route path='bookmark' element={<BookMark />} />

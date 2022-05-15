@@ -1,4 +1,3 @@
-import { useCallback, useEffect, useState } from 'react'
 import { useRecoilState } from 'recoil'
 import { bookmarkList } from 'atom'
 import store from 'storejs'

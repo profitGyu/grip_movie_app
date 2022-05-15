@@ -1,12 +1,16 @@
 import Layout from 'layouts/Moive/Layout'
 import SearchBar from 'components/Search/SearchBar'
+import _ from 'lodash'
 
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { moviePageState, movieSearchState, searchedAllMovie } from 'atom'
-import MovieBox from 'components/Box/MovieBox'
 import { useEffect, useRef, useCallback, useState, Suspense } from 'react'
+
 import { getMovieAPI } from 'services/moive'
+
 import { EmptyResult } from 'components/Search/EmptyResult'
+import MovieBox from 'components/Box/MovieBox'
+import SEO from 'components/SEO'
 
 const Movie = () => {
   const search = useRecoilValue(movieSearchState)
@@ -27,7 +31,7 @@ const Movie = () => {
       }).then((resp) => {
         if (resp.data.results === []) return
         setAllMoive((prev) => {
-          return prev.concat(resp.data.results)
+          return _.uniqBy(prev.concat(resp.data.results), "id")
         })
       })
       setIsLoaded(false)
@@ -75,16 +79,17 @@ const Movie = () => {
 
   return (
     <Layout>
+      <SEO title='Search'/>
       <SearchBar />
       {totalCount > 0 ? <h1>총 {totalCount}개의 결과물</h1> : null}
       {allMoive.length ? (
         <ul>
-          {allMoive.map((item, index) => (
-            <MovieBox item={item} key={`moive-list+${index}`} />
+          {allMoive.map((item) => (
+            <MovieBox item={item} key={`moive-list+${item.id}`} />
           ))}
           <Suspense fallback={<div>Loding...</div>}>
             <div ref={scrollRef} style={{ height: '50px' }}>
-              {/* {isLoaded && '로딩중'} */}
+              {isLoaded && '로딩중'}
             </div>
           </Suspense>
         </ul>

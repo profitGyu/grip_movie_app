@@ -1,5 +1,6 @@
 @use '/src/styles/constants/colors';
 @use '/src/styles/constants/levels';
+@use '/src/styles/mixins/responsive';
 
 .footerContainer {
   nav {
@@ -7,7 +8,7 @@
     bottom: 0;
     z-index: levels.$GNB;
     width: 100%;
-    height: 50px;
+    height: 6vh;
     background: colors.$NAV_COLOR;
     transition: 0.5s ease-in-out;
 
@@ -27,6 +28,22 @@
 
     a {
       all: unset;
+
+      @include responsive.between(M, ML) {
+        font-size: 2em;
+      }
+      @include responsive.between(ML, SD) {
+        font-size: 2em;
+      }
+      @include responsive.between(SD, LD) {
+        font-size: 2em;
+      }
+      @include responsive.between(SD, MD) {
+        font-size: 2em;
+      }
+      @include responsive.between(LD, SHD) {
+        font-size: 3em;
+      }
     }
 
     a:hover {

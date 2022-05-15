@@ -1,7 +1,8 @@
 import { MouseEventHandler } from 'react'
-import { IResult } from 'types/movie'
 import styles from './Modal.module.scss'
 import useBookMarkCore from 'hooks/moives/useBookmarkCore'
+import { IResult } from 'types/movie'
+import img from '../../assets/images/no-img.png'
 
 interface Modaltype {
   open?: boolean
@@ -13,15 +14,23 @@ interface Modaltype {
 const Modal = ({ open, close, item, bookmarkIs }: Modaltype) => {
   const { handleUpdateBookmarkIdList, handleUpdateBookmarkList, handleDeleteBookmarkIdList, handleDeleteBookmarkList } =
     useBookMarkCore()
+
   const moviesId = item.id
   return (
     <div className={open ? styles.modal : styles.closeModal} onClick={close} aria-hidden>
       <section
-        style={{
-          backgroundImage: `url(https://image.tmdb.org/t/p/w300_and_h450_bestv2${item.poster_path})`,
-
-          backgroundRepeat: 'no-repeat',
-        }}
+        style={
+          item.poster_path
+            ? {
+                backgroundImage: `url(https://image.tmdb.org/t/p/w300_and_h450_bestv2${item.poster_path})`,
+                backgroundRepeat: 'no-repeat',
+              }
+            : {
+                backgroundImage: `url(${img})`,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: "300px 450px"
+              }
+        }
       >
         <header>
           <button type='button' onClick={close}>

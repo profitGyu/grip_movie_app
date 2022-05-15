@@ -5,16 +5,15 @@ import { Link } from 'react-router-dom'
 
 const Footer = () => {
   const location = window.location.pathname
-
+  console.log("location:", location)
   return (
     <footer className={styles.footerContainer}>
       <nav>
         <ul>
           <li>
-            <Link to='/grip_movie_app'>
+            <Link to='/'>
               <FontAwesomeIcon
                 icon={faMagnifyingGlass}
-                size='lg'
                 className={
                   location === '/grip_movie_app' || location === '/grip_movie_app/' ? styles.iconActive : 'nomal'
                 }
@@ -25,8 +24,7 @@ const Footer = () => {
             <Link to='/BookMark'>
               <FontAwesomeIcon
                 icon={faBookBookmark}
-                size='lg'
-                className={location === '/BookMark' ? styles.iconActive : 'nomal'}
+                className={location === '/grip_movie_app/BookMark' ? styles.iconActive : 'nomal'}
               />
             </Link>
           </li>

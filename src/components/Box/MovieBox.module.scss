@@ -108,10 +108,10 @@
     }
 
     .bookmarkButton {
-      font-size: 28px;
+      font-size: 24px;
     }
   }
-  @include responsive.between(SD, HD) {
+  @include responsive.between(SD, SHD) {
     h2 {
       font-size: 40px;
     }
@@ -125,7 +125,7 @@
     }
 
     .bookmarkButton {
-      font-size: 35px;
+      font-size: 32px;
     }
   }
   @include responsive.between(SHD, QHD) {

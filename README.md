@@ -1,6 +1,6 @@
 # Grip 기업 과제
 
-영화 검색, 즐겨찾기를 등록할 수 있는 영화 앱입니다.
+영화 검색, 즐겨찾기를 등록할 수 있는 영화 앱입니다(반응형).
 
 - moive open APi 는 https://developers.themoviedb.org 의 API를 참조 했습니다. (한국어 지원)
 
@@ -50,7 +50,7 @@ https://silent10z.github.io/grip_movie_app
 - components : 컴포넌트
 - hooks: 커스텀 hook
 - layout: 기본 뼈대를 구성하는 tsx 파일
-- route: page
+- routes: router page 
 - servies: axios API 호출 코드
 - styles: scss 사용될 기본 세팅
 - types: typescript interface 
