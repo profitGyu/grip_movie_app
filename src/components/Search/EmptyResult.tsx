@@ -6,7 +6,7 @@ interface emptyResultProp {
   content: string
 }
 
-export const EmptyResult = ({content}:emptyResultProp) => {
+export const EmptyResult = ({ content }: emptyResultProp) => {
   return (
     <div className={styles.emptyResult}>
       <div className={styles.emptyResultContainer}>

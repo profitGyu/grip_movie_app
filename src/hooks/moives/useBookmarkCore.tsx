@@ -59,7 +59,7 @@ const useBookMarkCore = () => {
     bookmarkIdListFirstUpdate,
     handleUpdateBookmarkList,
     handleDeleteBookmarkIdList,
-    handleDeleteBookmarkList
+    handleDeleteBookmarkList,
   }
 }
 

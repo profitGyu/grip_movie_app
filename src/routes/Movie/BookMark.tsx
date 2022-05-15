@@ -9,8 +9,6 @@ import SEO from 'components/SEO'
 import useBookMarkCore from 'hooks/moives/useBookmarkCore'
 import { useMount } from 'react-use'
 
-
-
 const BookMark = () => {
   const { bookmarkListFirstUpdate } = useBookMarkCore()
 
@@ -22,7 +20,7 @@ const BookMark = () => {
 
   return (
     <Layout mainTitle='내 즐겨찾기'>
-      <SEO title='BookMark'/>
+      <SEO title='BookMark' />
       {bookmarkValue.length !== 0 ? (
         bookmarkValue.map((item, index) => <MovieBox item={item} index={index} key={`bookmarkIndex-${index}`} />)
       ) : (

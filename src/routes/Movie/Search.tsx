@@ -31,7 +31,7 @@ const Movie = () => {
       }).then((resp) => {
         if (resp.data.results === []) return
         setAllMoive((prev) => {
-          return _.uniqBy(prev.concat(resp.data.results), "id")
+          return _.uniqBy(prev.concat(resp.data.results), 'id')
         })
       })
       setIsLoaded(false)
@@ -79,7 +79,7 @@ const Movie = () => {
 
   return (
     <Layout>
-      <SEO title='Search'/>
+      <SEO title='Search' />
       <SearchBar />
       {totalCount > 0 ? <h1>총 {totalCount}개의 결과물</h1> : null}
       {allMoive.length ? (

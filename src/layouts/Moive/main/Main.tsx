@@ -5,7 +5,7 @@ interface Props {
   mainTitle?: string
 }
 
-const Main = ({ children, mainTitle}: Props) => {
+const Main = ({ children, mainTitle }: Props) => {
   return (
     <main className={styles.mainContainer}>
       <h1>{mainTitle}</h1>
