@@ -26,6 +26,7 @@ const useDragDrop = () => {
   const handleOnDrop = (e: React.DragEvent<HTMLLIElement>) => {
     e.preventDefault()
     const data = Number(e.dataTransfer.getData('text/html'))
+    if (isNaN(data)) return
     const targetPosition = Number(e.currentTarget.dataset.position)
     const list = [...bookmark]
     list[data] = list.splice(targetPosition, 1, list[data])[0]

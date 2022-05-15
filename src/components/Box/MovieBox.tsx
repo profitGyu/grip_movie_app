@@ -39,7 +39,7 @@ const MovieBox = ({ item, index }: BoxProps): React.ReactElement => {
   return (
     <li
       className={styles.boxContainer}
-      draggable
+      draggable={false}
       data-position={index}
       onDragOver={handleDragOver}
       onDragStart={handleDragStart}
