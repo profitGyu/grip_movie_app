@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/grip_movie_app/static/css/main.04a94006.css",
-    "main.js": "/grip_movie_app/static/js/main.591000ed.js",
+    "main.js": "/grip_movie_app/static/js/main.aaecf57f.js",
     "static/media/no-img.png": "/grip_movie_app/static/media/no-img.3684e37c6c29c788e623.png",
     "static/media/gripLogo3.png": "/grip_movie_app/static/media/gripLogo3.c02d78ff0f6c43451e52.png",
     "index.html": "/grip_movie_app/index.html",
     "main.04a94006.css.map": "/grip_movie_app/static/css/main.04a94006.css.map",
-    "main.591000ed.js.map": "/grip_movie_app/static/js/main.591000ed.js.map"
+    "main.aaecf57f.js.map": "/grip_movie_app/static/js/main.aaecf57f.js.map"
   },
   "entrypoints": [
     "static/css/main.04a94006.css",
-    "static/js/main.591000ed.js"
+    "static/js/main.aaecf57f.js"
   ]
 }
