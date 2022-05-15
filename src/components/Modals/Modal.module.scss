@@ -20,6 +20,7 @@
   background-color: colors.$MODALBACKCOLOR;
 
   section {
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 300px;
@@ -29,7 +30,6 @@
     padding: 3vw;
     margin: 0 auto;
     overflow: hidden;
-    background-image: url('../../assets/images/no-img.png');
     background-color: colors.$GRAYE;
     border-radius: 5px;
     animation: fadeFromDown 1s;
@@ -40,8 +40,9 @@
   }
 
   header {
-    display: flex;
-    flex-direction: row-reverse;
+    position: absolute;
+    left: 90%;
+    top: 1%;
 
     button {
       color: colors.$WHITE;

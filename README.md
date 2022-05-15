@@ -1,6 +1,7 @@
 # Grip 기업 과제
 
 영화 검색, 즐겨찾기를 등록할 수 있는 영화 앱입니다(반응형).
+가로 크기 375~1024에서 봐주세요
 
 - moive open APi 는 https://developers.themoviedb.org 의 API를 참조 했습니다. (한국어 지원)
 
@@ -18,7 +19,7 @@ https://silent10z.github.io/grip_movie_app
 ## 파일 구조
 ```cmd
 
-─assets
+├─assets
 │  ├─fontawsome
 │  ├─images
 │  └─svgs
@@ -26,7 +27,8 @@ https://silent10z.github.io/grip_movie_app
 ├─components
 │  ├─Box
 │  ├─Modals
-│  └─Search
+│  ├─Search
+│  └─SEO
 ├─hooks
 │  ├─moives
 │  └─worker
@@ -148,15 +150,17 @@ https://image.tmdb.org/t/p/w300_and_h450_bestv2/318YNPBDdt4VU1nsJDdImGc8Gek.jpg
 
 ## 기능 구현
 
-- 검색, 즐겨찾기 하단 탭 구성
-- 상단 입력/버튼 하단 검색 결과 화면
-- 첫 검색 결과 영역 "검색 결과가 없습니다." 노출
+- [ x ] 
+
+- 검색, 즐겨찾기 하단 탭 구성 &#x2611;
+- 상단 입력/버튼 하단 검색 결과 화면 &#x2611;
+- 첫 검색 결과 영역 "검색 결과가 없습니다." 노출 &#x2611;
 
 - 검색어 입력 후 버튼 클릭 
-    - 아래 검색결과 노출
-    - 검색 박스 고정
-    - 왼쪽 영화 포스터 이미지, 오른쪽 영화 제목, 연도, 타입(저는 장르) 표시
-    - 검색결과 x "검색 결과가 없습니다." 노출
+    - 아래 검색결과 노출 &#x2611;
+    - 검색 박스 고정 &#x2611;
+    - 왼쪽 영화 포스터 이미지, 오른쪽 영화 제목, 연도, 타입(저는 장르) 표시 &#x2611;
+    - 검색결과 x "검색 결과가 없습니다." 노출 &#x2611;
 
 - 검색 결과 중 영화 클릭
 

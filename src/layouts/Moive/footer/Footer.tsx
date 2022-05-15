@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 const Footer = () => {
   const location = window.location.pathname
-  console.log("location:", location)
+
   return (
     <footer className={styles.footerContainer}>
       <nav>
