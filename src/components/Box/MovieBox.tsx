@@ -57,9 +57,9 @@ const MovieBox = ({ item, index }: BoxProps): React.ReactElement => {
           <h2>{item.title}</h2>
           <h3>{item.release_date}</h3>
           <ul>
-            {item.genre_ids.map((id, genreIndex) => {
+            {item.genre_ids.map((id) => {
               const results = movieGenreList.genres.filter((elemnt) => elemnt.id === id)[0]
-              return <li key={`genre-${genreIndex}`}>{results.name}</li>
+              return <li key={`genre-${id}`}>{results.name}</li>
             })}
           </ul>
         </div>

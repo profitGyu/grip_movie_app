@@ -1,6 +1,6 @@
 import { atom, selector } from 'recoil'
-import { IBookMark, IResult, IGenreRsult, Imoive } from 'types/movie'
-import { getMovieGenreAPI, getMovieAPI } from 'services/moive'
+import { IBookMark, IResult, IGenreRsult } from 'types/movie'
+import { getMovieGenreAPI } from 'services/moive'
 
 export const moviePageState = atom<number>({
   key: '#moviePageState',

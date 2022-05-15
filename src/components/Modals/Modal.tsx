@@ -28,7 +28,7 @@ const Modal = ({ open, close, item, bookmarkIs }: Modaltype) => {
             : {
                 backgroundImage: `url(${img})`,
                 backgroundRepeat: 'no-repeat',
-                backgroundSize: "300px 450px"
+                backgroundSize: '300px 450px',
               }
         }
       >

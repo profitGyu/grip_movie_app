@@ -22,7 +22,7 @@ const BookMark = () => {
     <Layout mainTitle='내 즐겨찾기'>
       <SEO title='BookMark' />
       {bookmarkValue.length !== 0 ? (
-        bookmarkValue.map((item, index) => <MovieBox item={item} index={index} key={`bookmarkIndex-${index}`} />)
+        bookmarkValue.map((item, index) => <MovieBox item={item} index={index} key={`bookmarkIndex-${item.id}`} />)
       ) : (
         <EmptyResult content='즐겨찾기 목록이 없습니다.' />
       )}
