@@ -1,9 +1,11 @@
 @use '/src/styles/constants/colors';
+@use '/src/styles/constants/levels';
 
 .footerContainer {
   nav {
     position: absolute;
     bottom: 0;
+    z-index: levels.$GNB;
     width: 100%;
     height: 50px;
     background: colors.$NAV_COLOR;

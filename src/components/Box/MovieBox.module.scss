@@ -6,6 +6,7 @@
   display: flex;
   width: 100%;
   min-width: 250px;
+  max-height: 350px;
   padding: 1vw;
   margin-top: 10px;
   background-color: colors.$BORDERCOLOR;
@@ -31,7 +32,7 @@
 
       h2 {
         font-weight: 900;
-        color: colors.$SUBTITE;
+        color: colors.$TITLE;
       }
 
       h3 {
@@ -72,11 +73,11 @@
     @include responsive.between(ML, SD) {
       width: 250px;
       max-width: 250px;
-      height: 120px;
+      max-height: 260px;
     }
     @include responsive.between(SD, MD) {
-      width: 207px;
-      height: 200px;
+      max-width: 250px;
+      max-height: 260px;
     }
   }
 
@@ -95,7 +96,7 @@
   }
   @include responsive.between(ML, SD) {
     h2 {
-      font-size: 40px;
+      font-size: 32px;
     }
 
     h3 {
@@ -103,10 +104,14 @@
     }
 
     li {
-      font-size: 8px;
+      font-size: 16px;
+    }
+
+    .bookmarkButton {
+      font-size: 28px;
     }
   }
-  @include responsive.between(SD, QHD) {
+  @include responsive.between(SD, HD) {
     h2 {
       font-size: 40px;
     }
@@ -116,11 +121,28 @@
     }
 
     li {
-      font-size: 8px;
+      font-size: 20px;
     }
 
     .bookmarkButton {
-      font-size: 40px;
+      font-size: 35px;
+    }
+  }
+  @include responsive.between(SHD, QHD) {
+    h2 {
+      font-size: 50px;
+    }
+
+    h3 {
+      font-size: 36px;
+    }
+
+    li {
+      font-size: 32px;
+    }
+
+    .bookmarkButton {
+      font-size: 35px;
     }
   }
 }

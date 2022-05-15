@@ -2,10 +2,12 @@
 
 .mainContainer {
   width: 100vw;
-  height: 75%;
+  height: 84%;
   padding: 6vw 6vw 0;
+  overflow-y: scroll;
 
   h1 {
+    margin-top: 5vh;
     font-size: 25px;
     font-weight: 800;
   }
@@ -13,7 +15,6 @@
   .mainWapper {
     height: 95%;
     padding: 1.5vw;
-    overflow-y: scroll;
     border-radius: 3px;
     border-image: radial-gradient(to right, yellow 50);
   }
